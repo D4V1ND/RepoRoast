@@ -1,7 +1,4 @@
 import requests
-import os
-import shutil
-from git import Repo
 
 
 def fetch_repo_contents(repo_url): 
