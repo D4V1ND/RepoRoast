@@ -1,0 +1,16 @@
+<a
+          className="text-sm py-0 hover:text-gray-500 transition duration-300"
+          href="/pages/signin"
+        >
+          or Sign In
+        </a>
+        <div className="h-14"></div>
+        <p className="text-sm mt-2 pt-0 hover:text-gray-500 hover:underline transition duration-300 cursor-pointer">
+          Forgot password?
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default S
