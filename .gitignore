@@ -1,0 +1,23 @@
+# Exclude temp repo folder
+temp_repo/
+
+# Exclude chroma_db folder
+chroma_db/
+
+# Exclude parsed_repo.json and repo_structured_nested.json
+parsed_repo.json
+repo_structured_nested.json
+src/parsed_repo.json
+src/repo_structured_nested.json
+
+# Exclude take_reqs folder
+take_reqs/
+
+# Exclude agents.ipynb
+src/agents.ipynb
+
+# Ignore all Jupyter notebook checkpoints
+**/.ipynb_checkpoints/
+
+# Environment files 
+.env
