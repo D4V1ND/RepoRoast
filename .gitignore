@@ -21,3 +21,6 @@ src/agents.ipynb
 
 # Environment files 
 .env
+
+# ignore create.ipynb
+create.ipynb
