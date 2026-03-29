@@ -12,17 +12,15 @@ const transformBackendData = (data: any): any[] => {
     const { output_alex, output_sam, output_jordan } = data;
 
     if (output_alex) {
-      messages.push({ judge: "Alex", message: `Innovation Score: ${output_alex.innovation_score}/10` });
-      messages.push({ judge: "Alex", message: `💡 Strongest Innovation: ${output_alex.strongest_innovation}` });
+      messages.push({ judge: "Alex", message: `💡 Strongest Innovation: ${output_alex.strongest_innovation}`, score: output_alex.innovation_score }); // 👈 added score
       output_alex.brutally_honest_feedback.forEach((f: string) => {
         messages.push({ judge: "Alex", message: f });
       });
     }
 
     if (output_sam) {
-      messages.push({ judge: "Sam", message: `Architecture Score: ${output_sam.score}/10` });
-      output_sam.strengths.forEach((s: string) => {
-        messages.push({ judge: "Sam", message: `✅ ${s}` });
+      output_sam.strengths.forEach((s: string, i: number) => {
+        messages.push({ judge: "Sam", message: `✅ ${s}`, ...(i === 0 && { score: output_sam.score }) }); // 👈 added score to first message
       });
       output_sam.weakness.forEach((w: string) => {
         messages.push({ judge: "Sam", message: `⚠️ ${w}` });
@@ -30,8 +28,7 @@ const transformBackendData = (data: any): any[] => {
     }
 
     if (output_jordan) {
-      messages.push({ judge: "Jordan", message: `Impact Score: ${output_jordan.score}/10` });
-      messages.push({ judge: "Jordan", message: `🌍 ${output_jordan.impact}` });
+      messages.push({ judge: "Jordan", message: `🌍 ${output_jordan.impact}`, score: output_jordan.score }); // 👈 added score
       output_jordan.evidence_of_real_world_value.forEach((e: string) => {
         messages.push({ judge: "Jordan", message: e });
       });

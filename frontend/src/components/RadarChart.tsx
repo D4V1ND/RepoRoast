@@ -1,14 +1,20 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
+export default function ResultsChart({ innovation, architecture, impact}: {
+  innovation: number; 
+  architecture: number; 
+  impact: number;
+}) {
+
 const data = [
-  { subject: 'Innovation', A: 90, fullMark: 100 },
-  { subject: 'Architecture', A: 85, fullMark: 100 },
-  { subject: 'Impact', A: 95, fullMark: 100 },
-  { subject: 'Code Quality', A: 80, fullMark: 100 },
-  { subject: 'Security', A: 75, fullMark: 100 },
+  { subject: 'Innovation', A: innovation * 10, fullMark: 100 },
+  { subject: 'Architecture', A: architecture * 10, fullMark: 100 },
+  { subject: 'Impact', A: impact * 10, fullMark: 100 },
+  // { subject: 'Code Quality', A: 80, fullMark: 100 },
+  // { subject: 'Security', A: 75, fullMark: 100 },
 ];
 
-export default function ResultsChart() {
+// export default function ResultsChart() {
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer width="100%" height="100%">

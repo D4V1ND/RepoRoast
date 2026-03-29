@@ -3,6 +3,10 @@ import ResultsChart from "@/components/RadarChart";
 
 export default function Arena({ messages }: { messages: any[] }) {
   
+  const alexScore = messages.find(m => m.judge === "Alex" && m.score !== undefined)?.score ?? 5;
+  const samScore = messages.find(m => m.judge === "Sam" && m.score !== undefined)?.score ?? 5;
+  const jordanScore = messages.find(m => m.judge === "Jordan" && m.score !== undefined)?.score ?? 5;
+
   const downloadReport = () => {
     const content = messages.map(m => `${m.judge}: ${m.message}`).join('\n');
     const blob = new Blob([content], { type: 'text/plain' });
@@ -36,7 +40,7 @@ export default function Arena({ messages }: { messages: any[] }) {
       {/* RIGHT: The Dashboard */}
       <div className="bg-gray-900 rounded-xl border border-gray-800 p-6 flex flex-col items-center justify-center">
         <h3 className="text-xl font-bold mb-4 text-white">Analysis Score</h3>
-        <ResultsChart />
+        <ResultsChart innovation={alexScore} architecture={samScore} impact={jordanScore} />  // ✅
         
         <div className="mt-8 flex gap-4">
           <button onClick={downloadReport} className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded text-sm border border-gray-600 transition">
